@@ -35,8 +35,12 @@ padding: 0 0 30px 0;
     margin-left: 5px;
     border-radius: 6px;
     color: white;
+    transition: background-color 0.3s ease
 }
 
+.search-form-button:hover {
+    background-color: #b292ea;
+}
 .weather-data {
     display: flex;
     justify-content: space-between;
