@@ -1,18 +1,20 @@
 function updateWeather(response){
-    console.log(response)
+    console.log(response);
     console.log(response.data.temperature.current);
     let temperature = Math.round(response.data.temperature.current);
-    let tempertureElement = document.querySelector("#temperature")
-        let cityElement = document.querySelector("#weather-app-city")
+    let tempertureElement = document.querySelector("#temperature");
+        let cityElement = document.querySelector("#weather-app-city");
 let descriptionElement = document.querySelector("#description");
 let humidityElement = document.querySelector("#humidity");
 let windSpeedElement = document.querySelector("#wind-speed");
+let iconElement = document.querySelector("#icon");
 
 tempertureElement.innerHTML = `${temperature}`;
 cityElement.innerHTML = response.data.city;
 descriptionElement.innerHTML = response.data.condition.description;
 humidityElement.innerHTML = response.data.temperature.humidity;
 windSpeedElement.innerHTML = response.data.wind.speed;
+iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
 }
 
 
@@ -32,13 +34,14 @@ function searchSubmit(event) {
 let searchInput = document.querySelector("#search-form-input");
 
 searchCity(searchInput.value);
+searchInput.value = "";
 }
 
-let searchFormElement = document.querySelector("#search-form")
+let searchFormElement = document.querySelector("#search-form");
 
-searchFormElement.addEventListener("submit", searchSubmit)
+searchFormElement.addEventListener("submit", searchSubmit);
 
-searchCity("Paris")
+searchCity("Paris");
 
 
 function formatDate(date) {
@@ -72,3 +75,4 @@ let currentDateELement = document.querySelector("#current-date");
 let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
+
