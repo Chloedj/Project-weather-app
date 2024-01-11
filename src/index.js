@@ -9,6 +9,7 @@ let humidityElement = document.querySelector("#humidity");
 let windSpeedElement = document.querySelector("#wind-speed");
 let iconElement = document.querySelector("#icon");
 
+
 tempertureElement.innerHTML = `${temperature}`;
 cityElement.innerHTML = response.data.city;
 descriptionElement.innerHTML = response.data.condition.description;
@@ -76,3 +77,25 @@ let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
 
+function displayforecast() {
+let forecastElement = document.querySelector("#forecast")
+
+let days = ["Tue", "Wed", "Thu", "Fri", "Sat"]
+let forecastHtml = "";
+
+days.forEach(function (day) {
+forecastHtml = forecastHtml + `
+    <div class="weather-forecast-day">
+      <div class="weather-forecast-date">${day}</div>
+      <div class="weather-forecast-icon">⛅</div>
+      <div class="weather-forecast-temperatures">
+                <span class="weather-forecast-max">18°</span>
+                <span class="weather-forecast-min">12°</span>
+              </div>
+    </div>`;
+})
+
+forecastElement.innerHTML = forecastHtml
+}
+
+displayforecast();
